@@ -12,6 +12,7 @@ for i in news:
     str_news = i['description'].split()
     for str in str_news:
         if len(str) >= 6:
+            str = str.lower()
             word_more_6.append(str)
 dict_word = {}
 for i in word_more_6:

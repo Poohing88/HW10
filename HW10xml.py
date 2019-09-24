@@ -10,6 +10,7 @@ for item in xml_items:
     word = item.text.split()
     for str in word:
         if len(str) >= 6:
+            str = str.lower()
             word_more_6.append(str)
 dict_word = {}
 for i in word_more_6:
