@@ -7,20 +7,17 @@ with open ('newsafr.json', encoding='utf-8') as newsafr_file:
     # pprint(file)
 file_dict = dict(file)
 news = file_dict['rss']['channel']['items']
-word_more_6 = []
+dict_word = {}
 for i in news:
     str_news = i['description'].split()
     for str in str_news:
         if len(str) >= 6:
             str = str.lower()
-            word_more_6.append(str)
-dict_word = {}
-for i in word_more_6:
-    if i in dict_word.keys():
-        dict_word[i] += 1
-    else:
-        dict_word.setdefault(i)
-        dict_word[i] = 1
+            if str in dict_word.keys():
+                dict_word[str] += 1
+            else:
+                dict_word.setdefault(str)
+                dict_word[str] = 1
 counter = 0
 final_dict = {}
 while counter < 10:

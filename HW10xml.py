@@ -5,20 +5,17 @@ from pprint import pprint
 tree = ET.parse('newsafr.xml')
 root = tree.getroot()
 xml_items = root.findall('channel/item/description')
-word_more_6 = []
+dict_word = {}
 for item in xml_items:
     word = item.text.split()
     for str in word:
         if len(str) >= 6:
             str = str.lower()
-            word_more_6.append(str)
-dict_word = {}
-for i in word_more_6:
-    if i in dict_word.keys():
-        dict_word[i] += 1
-    else:
-        dict_word.setdefault(i)
-        dict_word[i] = 1
+            if str in dict_word.keys():
+                dict_word[str] += 1
+            else:
+                dict_word.setdefault(str)
+                dict_word[str] = 1
 counter = 0
 final_dict = {}
 while counter < 10:
